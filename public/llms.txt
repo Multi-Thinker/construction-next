@@ -1,0 +1,15 @@
+# Top Construction & Design
+
+> Publicly reachable migration preview of a South Florida residential remodeling website. This preview preserves verified public business information while pages are rebuilt and reviewed before launch.
+
+## Available preview pages
+
+- [Homepage](https://top-construction-design-rebuild.citrusitem9.chatgpt.site/) — Kitchen, bathroom and home remodeling overview for Broward County.
+- [Remodeling services](https://top-construction-design-rebuild.citrusitem9.chatgpt.site/#/services) — Service-category framework; individual service details are not yet published.
+- [Project portfolio](https://top-construction-design-rebuild.citrusitem9.chatgpt.site/#/portfolio) — Portfolio framework for verified project stories and imagery.
+- [Service areas](https://top-construction-design-rebuild.citrusitem9.chatgpt.site/#/areas) — Broward County community coverage framework.
+- [Contact](https://top-construction-design-rebuild.citrusitem9.chatgpt.site/#/contact) — Phone and email contact information.
+
+## Preview status
+
+This is not the production domain and canonicalizes to the live site. Do not treat placeholder detail cards or unpublished routes as factual service-page content.

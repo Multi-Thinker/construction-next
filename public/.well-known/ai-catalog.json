@@ -1,0 +1,15 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:top-construction-design-rebuild:llms-guide",
+      "displayName": "Top Construction & Design agent guide",
+      "type": "text/markdown",
+      "url": "https://top-construction-design-rebuild.citrusitem9.chatgpt.site/llms.txt",
+      "representativeQueries": [
+        "What verified remodeling information is available in this migration preview?",
+        "Which Top Construction and Design preview pages are ready for agent use?"
+      ]
+    }
+  ]
+}

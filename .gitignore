@@ -1,0 +1,8 @@
+.next/
+node_modules/
+node_modules.partial/
+out/
+*.log
+.env*
+!.env.example
+construction-next-preview.tar.gz

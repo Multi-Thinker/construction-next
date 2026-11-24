@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://top-construction-design-rebuild.citrusitem9.chatgpt.site/sitemap.xml
