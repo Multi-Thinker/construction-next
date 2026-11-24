@@ -11,7 +11,7 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
 
   return (
     <header className="site-header">
-      <a className="header-logo" href="#/" onClick={closeMenu}>
+      <a className="header-logo" href="/" onClick={closeMenu}>
         <img src={typeof whiteLogo === "string" ? whiteLogo : whiteLogo.src} alt="" width="500" height="500" />
         <span className="header-brand-text">
           Top Construction
@@ -42,7 +42,7 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
       >
         <a
           className={route === "home" ? "active-route" : ""}
-          href="#/"
+          href="/"
           onClick={closeMenu}
         >
           Home
@@ -56,7 +56,7 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
           >
             <a
               className={route === group.slug ? "active-route" : ""}
-              href={group.slug === "services" ? "/general-construction/" : `#/${group.slug}`}
+              href={group.slug === "services" ? "/general-construction/" : group.slug === "portfolio" ? "/portfolio/" : `#/${group.slug}`}
               onClick={closeMenu}
             >
               {group.label}
