@@ -2,19 +2,32 @@
 
 import { useEffect, useState } from "react";
 
-export default function ImageCarousel({ slides, label, className = "", slidesPerView = 1 }) {
+export default function ImageCarousel({
+  slides, label, className = "", slidesPerView = 1,
+  mobileSlidesPerView = slidesPerView, slideGap = 0, autoplayDelay = 2500,
+}) {
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
   const [interacted, setInteracted] = useState(false);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (mobileSlidesPerView === slidesPerView) return;
+    const query = window.matchMedia("(max-width: 767px)");
+    const update = () => setMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, [mobileSlidesPerView, slidesPerView]);
 
   useEffect(() => {
     if (paused || interacted) return undefined;
     const timer = window.setInterval(
       () => setSlide((current) => (current + 1) % slides.length),
-      2500,
+      autoplayDelay,
     );
     return () => window.clearInterval(timer);
-  }, [interacted, paused, slides.length]);
+  }, [autoplayDelay, interacted, paused, slides.length]);
 
   const selectSlide = (index) => {
     setInteracted(true);
@@ -25,6 +38,11 @@ export default function ImageCarousel({ slides, label, className = "", slidesPer
     index === slide ||
     index === (slide + 1) % slides.length ||
     index === (slide - 1 + slides.length) % slides.length;
+
+  const visibleSlides = mobile ? mobileSlidesPerView : slidesPerView;
+  const multiple = visibleSlides > 1;
+  const responsive = mobileSlidesPerView !== slidesPerView;
+  const trackSlides = multiple ? [...slides, ...slides.slice(0, visibleSlides - 1)] : slides;
 
   return (
     <div
@@ -40,25 +58,30 @@ export default function ImageCarousel({ slides, label, className = "", slidesPer
       <div className="source-carousel-viewport">
         <div
           className="source-carousel-track"
-          style={{ transform: `translateX(calc(-${slide} * (100% / var(--slides-per-view))))`, "--slides-per-view": slidesPerView }}
+          style={{
+            transform: `translateX(calc(-${slide} * ((100% + ${slideGap}px) / var(--slides-per-view))))`,
+            "--slides-per-view": visibleSlides,
+            gap: slideGap,
+          }}
           aria-live="off"
         >
-          {slides.map(([src, alt], index) => (
+          {trackSlides.map(([src, alt], index) => (
             <figure
               className="source-carousel-slide"
-              key={src}
+              key={`${src}-${index}`}
+              style={multiple ? { flexBasis: `calc((100% - ${(visibleSlides - 1) * slideGap}px) / var(--slides-per-view))` } : undefined}
               role="group"
               aria-roledescription="slide"
-              aria-label={`${index + 1} / ${slides.length}`}
-              aria-hidden={index !== slide}
+              aria-label={`${index % slides.length + 1} / ${slides.length}`}
+              aria-hidden={index < slide || index >= slide + visibleSlides}
             >
-              {isNearby(index) && (
+              {(multiple || responsive || isNearby(index)) && (
                 <img
                   src={src}
                   alt={alt}
                   width="640"
                   height="427"
-                  loading={index === slide ? "eager" : "lazy"}
+                  loading={index === slide || (responsive && isNearby(index)) ? "eager" : "lazy"}
                 />
               )}
             </figure>

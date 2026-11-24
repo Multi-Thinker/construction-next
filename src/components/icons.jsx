@@ -16,3 +16,10 @@ export const Chevron = () => (
     <path d="m3 6 5 5 5-5" />
   </svg>
 );
+
+export const Mail = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="1" />
+    <path d="m2 6 10 8L22 6" />
+  </svg>
+);

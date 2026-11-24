@@ -56,7 +56,8 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
           >
             <a
               className={route === group.slug ? "active-route" : ""}
-              href={group.slug === "services" ? "/general-construction/" : group.slug === "portfolio" ? "/portfolio/" : group.slug === "our-work" ? "/new-pool-construction-project-in-west-palm-beach/" : group.slug === "areas" ? "/remodeling-contractor-coral-springs-fl/" : `#/${group.slug}`}
+              href={group.slug === "services" ? "/general-construction/" : group.slug === "portfolio" ? "/portfolio/" : group.slug === "our-work" ? "/new-pool-construction-project-in-west-palm-beach/" : group.slug === "areas" ? "/remodeling-contractor-coral-springs-fl/" : group.slug === "contact" ? "/contact/" : group.slug === "about" ? "/about-us/" : `#/${group.slug}`}
+              aria-current={route === group.slug ? "page" : undefined}
               onClick={closeMenu}
             >
               {group.label}
@@ -90,15 +91,14 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
             )}
           </div>
         ))}
-        <button
+        <a
           className="privacy-link"
-          type="button"
-          disabled
-          title="This page has not been rebuilt yet"
+          href="/privacy-policy/"
+          aria-current={route === "privacy" ? "page" : undefined}
+          onClick={closeMenu}
         >
-          <Lock />
           Privacy Policy
-        </button>
+        </a>
       </nav>
       <a className="phone-button" href="tel:+19543182322">
         <Phone />

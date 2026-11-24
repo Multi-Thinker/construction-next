@@ -36,7 +36,7 @@ export default function Footer({ routes }) {
           <ul>
             {routes.slice(0, 6).map(([slug, label]) => (
               <li key={slug}>
-                <a href={slug === "home" ? "/" : slug === "services" ? "/general-construction/" : slug === "portfolio" ? "/portfolio/" : `#/${slug}`}>{label}</a>
+                <a href={slug === "home" ? "/" : slug === "services" ? "/general-construction/" : slug === "portfolio" ? "/portfolio/" : slug === "contact" ? "/contact/" : `#/${slug}`}>{label}</a>
               </li>
             ))}
           </ul>
