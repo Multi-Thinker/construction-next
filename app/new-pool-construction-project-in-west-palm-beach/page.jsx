@@ -1,21 +1,8 @@
 import SiteChrome from '../../src/components/SiteChrome';
 import DetailHero from '../../src/components/DetailHero';
 import MasonryGallery from '../../src/components/MasonryGallery';
-
-export const metadata = {
-  title: 'New Pool Construction Project in West Palm Beach | Top Construction and Design',
-  description: 'See a completed new pool construction project in West Palm Beach by Top Construction and Design, including the finished pool and surrounding outdoor work.',
-  alternates: { canonical: 'https://topconstructionanddesign.com/new-pool-construction-project-in-west-palm-beach/' },
-};
-
-const beforeGallery = [1, 2, 3].map((n) => [`/our-work/pool/pool-${n}.jpg`, `New pool construction project image ${n}`]);
-const afterGallery = [6, 7, 8, 9].map((n) => [`/our-work/pool/pool-${n}.jpg`, `Completed West Palm Beach pool project image ${n}`]);
-
-export default function NewPoolProjectPage() {
-  return <main><SiteChrome route="our-work">
-    <DetailHero title="New Pool Construction Project in West Palm Beach" desktopImage="/our-work/pool/pool-4.jpg" mobileImage="/our-work/pool/pool-5.jpg" />
-    <section className="work-light-section"><h2>Once the pool was done:</h2><p>Our team completed this new pool construction project in West Palm Beach with a finished outdoor space designed for South Florida living.</p><MasonryGallery images={beforeGallery} columns={3} mobileColumns={2} gap={10} borderColor="#000" borderWidth={3} label="Pool construction gallery" /></section>
-    <section className="work-light-section work-around"><h2>And around the pool:</h2><p>The completed pool area brings together clean concrete work, landscaping and space for outdoor entertaining.</p></section>
-    <section className="work-dark-section"><h2>Completed project</h2><MasonryGallery images={afterGallery} columns={3} mobileColumns={2} gap={10} borderColor="#fff" borderWidth={3} label="Completed pool project gallery" /></section>
-  </SiteChrome></main>;
-}
+export const metadata={title:'New Pool Construction Project in West Palm Beach | Top Construction and Design',description:'See a completed new pool construction project in West Palm Beach by Top Construction and Design.',alternates:{canonical:'https://topconstructionanddesign.com/new-pool-construction-project-in-west-palm-beach/'}};
+const beforeGallery=[6,7,8].map(n=>[`/our-work/pool/pool-${n}.jpg`,`Pool deck renovation image ${n}`]);
+const afterGallery=[9,5,4,3,2,1].map(n=>[`/our-work/pool/pool-${n}.jpg`,`Completed pool project image ${n}`]);
+const paragraphs=[`We recently wrapped up a new pool construction job for a homeowner in West Palm Beach, FL. The customer reached out to us wanting a complete backyard upgrade, and we were happy to take care of everything from start to finish.`,`We started by designing a custom pool layout that worked well with the shape of the backyard and gave the family enough room to enjoy the water while still keep a good amount of patio spaces. Once the design was approved, we got to work on the excavation and built the pool structure, making sure everything was up to code.`,`After the shell was completed, we moved on to the tile work. The customer chose a clean, light-colored travertine that not only looks great but also stays cool. It gives the whole area a fresh, modern look that really pops against the green landscaping.`,`The finishing touch was installing the new pool surface and filling it up. The water looks crystal clear and really brings the whole project to life.`,`As you can see in the photos, what was once just a plain backyard is now a beautiful space that’s perfect for relaxing, entertaining, or just cooling off on a hot day.`,`At Top Construction and Design, we handle every part of the pool building process – from layout and permits to the last tile and final cleanup.`];
+export default function NewPoolProjectPage(){return <main><SiteChrome route="our-work"><DetailHero title="Our Work" desktopImage="/our-work/pool/pool-4.jpg" mobileImage="/our-work/pool/pool-5.jpg"/><section className="work-light-section"><h1>New Pool Construction Project in West Palm Beach</h1><div className="work-copy">{paragraphs.map(p=><p key={p}>{p}</p>)}</div><h2>Once the pool was done:</h2><div className="work-contained-gallery"><MasonryGallery images={beforeGallery} columns={3} mobileColumns={2} gap={10} borderColor="#000" borderWidth={3} label="Pool construction gallery"/></div></section><section className="work-light-section work-around"><h2>And around the pool:</h2></section><section className="work-dark-section"><MasonryGallery images={afterGallery} columns={3} mobileColumns={2} gap={10} borderColor="#fff" borderWidth={3} label="Completed pool project gallery"/></section></SiteChrome></main>}

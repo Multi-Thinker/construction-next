@@ -56,7 +56,7 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
           >
             <a
               className={route === group.slug ? "active-route" : ""}
-              href={group.slug === "services" ? "/general-construction/" : group.slug === "portfolio" ? "/portfolio/" : group.slug === "our-work" ? "/new-pool-construction-project-in-west-palm-beach/" : `#/${group.slug}`}
+              href={group.slug === "services" ? "/general-construction/" : group.slug === "portfolio" ? "/portfolio/" : group.slug === "our-work" ? "/new-pool-construction-project-in-west-palm-beach/" : group.slug === "areas" ? "/remodeling-contractor-coral-springs-fl/" : `#/${group.slug}`}
               onClick={closeMenu}
             >
               {group.label}
@@ -81,6 +81,8 @@ export default function Header({ route, setMenuOpen, menuOpen, navGroups }) {
                   <a className="disabled-submenu-link available-submenu-link" key={child} href="/general-construction/" onClick={closeMenu}>{child}</a>
                 ) : child === "New Pool Construction Project in West Palm Beach" ? (
                   <a className="disabled-submenu-link available-submenu-link" key={child} href="/new-pool-construction-project-in-west-palm-beach/" onClick={closeMenu}>{child}</a>
+                ) : child === "Coral Springs" ? (
+                  <a className="disabled-submenu-link available-submenu-link" key={child} href="/remodeling-contractor-coral-springs-fl/" onClick={closeMenu}>{child}</a>
                 ) : (
                   <button className="disabled-submenu-link" key={child} type="button" disabled title="This page has not been rebuilt yet"><Lock />{child}</button>
                 ))}

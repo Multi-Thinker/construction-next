@@ -6,6 +6,7 @@ export default function DetailHero({
   mobileMinHeight = 360,
   desktopPaddingTop = 53,
   overlayClassName = '',
+  eyebrow,
 }) {
   return <section
     className={`detail-hero ${overlayClassName}`}
@@ -17,6 +18,6 @@ export default function DetailHero({
       '--detail-hero-desktop-padding-top': `${desktopPaddingTop}px`,
     }}
   >
-    <div className="detail-hero-overlay"><h1>{title}</h1></div>
+    <div className="detail-hero-overlay">{eyebrow && <p className="detail-hero-eyebrow">{eyebrow}</p>}<h1>{title}</h1></div>
   </section>;
 }
